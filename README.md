@@ -1,45 +1,37 @@
 # 🏦 Woovi CRUD Bank GraphQL
 
-![Node.js](https://img.shields.io/badge/Node.js-20+-green)
-![GraphQL](https://img.shields.io/badge/GraphQL-API-E10098)
-![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248)
-![Koa.js](https://img.shields.io/badge/Koa.js-Backend-black)
-![Status](https://img.shields.io/badge/Status-Completed-success)
-
-Desafio técnico inspirado no dia a dia da **Woovi**, simulando um sistema bancário com **CRUD de contas**, **transferências financeiras**, **controle de saldo** e **ledger de transações**, utilizando **GraphQL**, **Koa.js** e **MongoDB Atlas**.
-
-O objetivo do projeto foi construir uma API bancária seguindo regras de negócio reais, como validação de saldo, prevenção de transações inválidas e histórico financeiro por conta.
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-20+-green?style=for-the-badge&logo=node.js" />
+  <img src="https://img.shields.io/badge/GraphQL-API-E10098?style=for-the-badge&logo=graphql" />
+  <img src="https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb" />
+  <img src="https://img.shields.io/badge/Koa.js-Backend-black?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Jest-Testes-red?style=for-the-badge&logo=jest" />
+  <img src="https://img.shields.io/badge/Status-Concluído-success?style=for-the-badge" />
+</p>
 
 ---
 
-# 🚀 Funcionalidades
+## 📖 Sobre o projeto
 
-## 🏦 Contas Bancárias
+Desafio técnico inspirado no dia a dia da **Woovi**, simulando um sistema bancário utilizando **GraphQL**, **Koa.js** e **MongoDB Atlas**.
 
-- ✅ Criar conta
-- ✅ Criar conta com saldo inicial
-- ✅ Buscar todas as contas
-- ✅ Buscar conta por ID
-- ✅ Atualizar conta
-- ✅ Desativar conta (*soft delete*)
-- ✅ Proteção contra operações em contas desativadas
+O projeto implementa um sistema de contas bancárias com:
 
-## 💸 Transações
+- CRUD completo de contas
+- Transferências financeiras entre contas
+- Controle de saldo
+- Histórico de transações
+- Regras de negócio bancárias
+- Ledger de movimentações financeiras
+- Testes automatizados
 
-- ✅ Transferência entre contas
-- ✅ Atualização automática de saldo
-- ✅ Validação de saldo insuficiente
-- ✅ Proteção contra transferência para a mesma conta
-- ✅ Proteção contra contas inativas
-- ✅ Histórico de transações
-- ✅ Extrato financeiro por conta
-- ✅ Controle de ledger bancário
+O objetivo foi construir uma API próxima de um cenário real, aplicando validações financeiras e regras de segurança para evitar inconsistências de saldo.
 
 ---
 
 # 🌐 Deploy
 
-A API está disponível em produção no Render:
+A API está disponível online no Render:
 
 ### GraphQL Endpoint
 
@@ -47,11 +39,11 @@ A API está disponível em produção no Render:
 https://woovi-crud-bank-graphql.onrender.com/graphql
 ```
 
-> ⚠️ Observação: por estar hospedado no plano gratuito do Render, a primeira requisição pode demorar alguns segundos.
+> ⚠️ Observação: como o deploy está no plano gratuito do Render, a primeira requisição pode levar alguns segundos.
 
 ---
 
-# 🛠 Tecnologias utilizadas
+# 🚀 Tecnologias utilizadas
 
 ## Backend
 
@@ -62,11 +54,12 @@ https://woovi-crud-bank-graphql.onrender.com/graphql
 - MongoDB Atlas
 - Mongoose
 - Dotenv
-- Nodemon
 
-## Banco de Dados
+## Testes
 
-- MongoDB Atlas
+- Jest
+- Supertest
+- MongoDB Memory Server
 
 ## Deploy
 
@@ -74,9 +67,132 @@ https://woovi-crud-bank-graphql.onrender.com/graphql
 
 ---
 
-# 📂 Estrutura do projeto
+# 🏦 Funcionalidades
+
+## Contas Bancárias
+
+✅ Criar conta
+
+✅ Criar conta com saldo inicial
+
+✅ Buscar todas as contas
+
+✅ Buscar conta por ID
+
+✅ Atualizar conta
+
+✅ Excluir conta
+
+✅ Ativar/Desativar conta
+
+---
+
+## Transferências Bancárias
+
+✅ Transferência entre contas
+
+✅ Atualização automática do saldo
+
+✅ Registro da transação
+
+✅ Histórico financeiro
+
+✅ Extrato por conta
+
+---
+
+# 🔒 Regras de negócio implementadas
+
+O sistema possui validações para simular um ambiente bancário real:
+
+### Segurança de transferências
+
+✅ Não permite transferir para a mesma conta
+
+✅ Não permite saldo insuficiente
+
+✅ Não permite enviar dinheiro para contas desativadas
+
+✅ Não permite receber dinheiro em contas desativadas
+
+✅ Não permite transferências inválidas
+
+---
+
+### Controle financeiro
+
+✅ Atualização automática dos saldos
+
+✅ Histórico de movimentações
+
+✅ Ledger financeiro das contas
+
+✅ Extrato individual por conta
+
+---
+
+# 🧪 Testes automatizados
+
+O projeto possui testes automatizados cobrindo regras críticas do sistema bancário.
+
+### Casos testados
+
+✅ Criar conta com saldo inicial
+
+✅ Bloquear criação de conta sem nome
+
+✅ Transferir saldo entre contas
+
+✅ Bloquear transferência com saldo insuficiente
+
+✅ Bloquear transferência para a mesma conta
+
+✅ Bloquear transferência para conta desativada
+
+---
+
+## Executar testes
+
+Entre na pasta backend:
 
 ```bash
+cd backend
+```
+
+Execute:
+
+```bash
+npm test
+```
+
+---
+
+# 📮 Collection do Postman
+
+O projeto possui uma collection pronta do Postman para testar toda a API.
+
+### Localização:
+
+```txt
+postman/
+└── woovi-crud-bank-graphql.postman.json
+```
+
+### Como importar
+
+1. Abra o Postman
+2. Clique em **Import**
+3. Selecione o arquivo:
+
+```txt
+postman/woovi-crud-bank-graphql.postman.json
+```
+
+---
+
+# 📂 Estrutura do projeto
+
+```txt
 woovi-crud-bank-graphql/
 │
 ├── backend/
@@ -89,6 +205,9 @@ woovi-crud-bank-graphql/
 │   │   ├── schema.js
 │   │   └── server.js
 │   │
+│   ├── tests/
+│   │   └── account.test.js
+│   │
 │   ├── .env
 │   ├── package.json
 │   └── package-lock.json
@@ -96,7 +215,6 @@ woovi-crud-bank-graphql/
 ├── postman/
 │   └── woovi-crud-bank-graphql.postman.json
 │
-├── .env.example
 ├── .gitignore
 └── README.md
 ```
@@ -111,11 +229,15 @@ woovi-crud-bank-graphql/
 git clone https://github.com/GeorgeKempf/woovi-crud-bank-graphql.git
 ```
 
-## 2. Entre na pasta do backend
+---
+
+## 2. Entre no projeto
 
 ```bash
 cd woovi-crud-bank-graphql/backend
 ```
+
+---
 
 ## 3. Instale as dependências
 
@@ -123,9 +245,11 @@ cd woovi-crud-bank-graphql/backend
 npm install
 ```
 
-## 4. Configure as variáveis de ambiente
+---
 
-Crie um arquivo `.env` dentro da pasta `backend/`:
+## 4. Configure o arquivo `.env`
+
+Crie um arquivo `.env` na raiz do backend:
 
 ```env
 PORT=4000
@@ -136,11 +260,13 @@ MONGO_URI=sua_string_do_mongodb_atlas
 
 ## 5. Execute o projeto
 
+Modo desenvolvimento:
+
 ```bash
 npm run dev
 ```
 
-Servidor disponível em:
+Servidor local:
 
 ```txt
 http://localhost:4000/graphql
@@ -148,31 +274,7 @@ http://localhost:4000/graphql
 
 ---
 
-# 🧪 Testando com Postman
-
-O projeto já possui uma collection pronta do Postman para facilitar os testes.
-
-Arquivo disponível em:
-
-```txt
-postman/woovi-crud-bank-graphql.postman.json
-```
-
-### Como importar
-
-1. Abra o Postman
-2. Clique em **Import**
-3. Selecione o arquivo:
-
-```txt
-postman/woovi-crud-bank-graphql.postman.json
-```
-
-4. Execute as mutations e queries prontas.
-
----
-
-# 📡 Exemplos de Queries e Mutations
+# 📚 Exemplos de Queries e Mutations
 
 ## Criar conta
 
@@ -239,7 +341,7 @@ mutation {
 
 ---
 
-## Desativar conta (*Soft Delete*)
+## Excluir conta
 
 ```graphql
 mutation {
@@ -247,7 +349,6 @@ mutation {
     id: "ID_DA_CONTA"
   ) {
     id
-    active
   }
 }
 ```
@@ -302,7 +403,7 @@ query {
 
 ---
 
-## Extrato por conta
+## Extrato de uma conta
 
 ```graphql
 query {
@@ -325,43 +426,35 @@ query {
 
 ---
 
-# 🧠 Regras de negócio implementadas
-
-O sistema possui validações para simular um ambiente bancário mais próximo do real:
-
-- Não permite transferir dinheiro para a mesma conta
-- Não permite transferências com saldo insuficiente
-- Não permite transações com contas desativadas
-- Não permite enviar dinheiro para contas inativas
-- O saldo é atualizado automaticamente após cada transação
-- Todas as transferências ficam registradas no ledger da conta
-
----
-
 # 📈 Melhorias futuras
 
-- [ ] Testes automatizados com Jest
+- [x] Testes automatizados com Jest
+- [x] Collection do Postman
 - [ ] Docker
-- [ ] Frontend com React + Relay
-- [ ] Interface bancária
-- [ ] Paginação Relay Connection
-- [ ] Sistema de autenticação
+- [ ] Frontend bancário
+- [ ] Interface React + Relay
+- [ ] Autenticação de usuários
 - [ ] Logs de auditoria financeira
+- [ ] Paginação Relay Connection
 
 ---
 
 # 👨‍💻 Autor
 
-**George Kempf Teixeira**
+### George Kempf Teixeira
+
+Desenvolvido como desafio técnico inspirado na Woovi.
 
 ### Contato
 
-GitHub:  
+**GitHub**
+
+```txt
 https://github.com/GeorgeKempf
+```
 
-LinkedIn:  
+**LinkedIn**
+
+```txt
 https://www.linkedin.com/in/georgekempf/
-
----
-
-⭐ Se este projeto te ajudou ou você gostou da implementação, considere deixar uma estrela no repositório.
+```

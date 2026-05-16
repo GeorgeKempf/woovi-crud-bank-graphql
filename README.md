@@ -1,6 +1,20 @@
 # 🏦 Woovi CRUD Bank GraphQL
 
-Desafio técnico inspirado no dia a dia da **Woovi**, simulando um sistema bancário com **CRUD de contas**, **transferências financeiras** e **controle de saldo**, utilizando **GraphQL**, **Koa.js** e **MongoDB**.
+Desafio técnico inspirado no dia a dia da **Woovi**, simulando um sistema bancário com **CRUD de contas**, **transferências financeiras** e **controle de saldo**, utilizando **GraphQL**, **Koa.js** e **MongoDB Atlas**.
+
+---
+
+## 🌐 Deploy
+
+A API está disponível em produção no Render:
+
+**GraphQL Endpoint**
+
+```txt
+https://woovi-crud-bank-graphql.onrender.com/graphql
+```
+
+> Observação: por estar no plano gratuito do Render, a primeira requisição pode demorar alguns segundos caso o serviço esteja inativo.
 
 ---
 
@@ -12,10 +26,14 @@ Desafio técnico inspirado no dia a dia da **Woovi**, simulando um sistema banc�
 - Koa.js
 - GraphQL
 - graphql-http
-- MongoDB
+- MongoDB Atlas
 - Mongoose
 - Dotenv
 - Nodemon
+
+### Deploy
+
+- Render
 
 ---
 
@@ -27,11 +45,11 @@ Desafio técnico inspirado no dia a dia da **Woovi**, simulando um sistema banc�
 - ✅ Buscar todas as contas
 - ✅ Buscar conta por ID
 - ✅ Atualizar conta
-- ✅ Desativar conta (Soft Delete)
+- ✅ Excluir conta
 
 ### Transações
 
-- ✅ Enviar transação entre contas
+- ✅ Transferência entre contas
 - ✅ Atualização automática de saldo
 - ✅ Validação de saldo insuficiente
 - ✅ Proteção contra transferência para a mesma conta
@@ -84,7 +102,7 @@ Crie um arquivo `.env` na raiz do backend:
 
 ```env
 PORT=4000
-MONGO_URI=mongodb://127.0.0.1:27017/woovi_bank
+MONGO_URI=sua_string_do_mongodb_atlas
 ```
 
 ### 5. Execute o projeto
@@ -161,13 +179,14 @@ mutation {
   ) {
     id
     name
+    balance
   }
 }
 ```
 
 ---
 
-### Desativar conta
+### Excluir conta
 
 ```graphql
 mutation {
@@ -175,7 +194,6 @@ mutation {
     id: "ID_DA_CONTA"
   ) {
     id
-    active
   }
 }
 ```
@@ -267,7 +285,7 @@ Desenvolvido por **George Kempf Teixeira**
 ## 📈 Melhorias futuras
 
 - [ ] Testes automatizados com Jest
-- [ ] Deploy em produção
 - [ ] Frontend com React + Relay
 - [ ] Interface bancária
 - [ ] Paginação Relay Connection
+- [ ] Autenticação de usuários

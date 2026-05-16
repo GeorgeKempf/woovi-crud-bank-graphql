@@ -1,0 +1,204 @@
+{
+  "info": {
+    "_postman_id": "ec352ea8-be54-4261-b793-60ac046c594a",
+    "name": "Woovi CRUD Bank GraphQL",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54904463",
+    "_collection_link": "https://go.postman.co/collection/54904463-ec352ea8-be54-4261-b793-60ac046c594a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Accounts",
+      "item": [
+        {
+          "name": "Create Account",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation CreateAccount($name: String!) {\r\n  createAccount(name: $name) {\r\n    id\r\n    name\r\n    balance\r\n  }\r\n}",
+                "variables": "{\r\n  \"name\": \"George Kempf\"\r\n}"
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Account",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query GetAccount($id: String!) {\r\n  account(id: $id) {\r\n    id\r\n    name\r\n    balance\r\n  }\r\n}",
+                "variables": "{\r\n  \"id\": \"6a08937eac88a8b1baacebb9\"\r\n}"
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Account (With Balance)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation CreateAccountWithBalance($name: String!, $initialBalance: Float) {\r\n  createAccount(name: $name, initialBalance: $initialBalance) {\r\n    id\r\n    name\r\n    balance\r\n  }\r\n}",
+                "variables": "{\r\n  \"name\": \"Conta com Saldo\",\r\n  \"initialBalance\": 100\r\n}"
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Account",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation SendTransaction(\r\n  $fromAccountId: String!,\r\n  $toAccountId: String!,\r\n  $amount: Float!\r\n) {\r\n  sendTransaction(\r\n    fromAccountId: $fromAccountId\r\n    toAccountId: $toAccountId\r\n    amount: $amount\r\n  ) {\r\n    id\r\n    amount\r\n  }\r\n}",
+                "variables": "{\r\n  \"fromAccountId\": \"6a08953dac88a8b1baacebbc\",\r\n  \"toAccountId\": \"6a08937eac88a8b1baacebb9\",\r\n  \"amount\": 50\r\n}"
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Account",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation DeleteAccount($id: String!) {\r\n  deleteAccount(id: $id) {\r\n    id\r\n    name\r\n    balance\r\n  }\r\n}",
+                "variables": "{\r\n  \"id\": \"6a08953dac88a8b1baacebbc\"\r\n}"
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Accounts",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\r\n  accounts {\r\n    id\r\n    name\r\n    balance\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Transactions",
+      "item": [
+        {
+          "name": "Send Transaction",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation SendTransaction(\r\n  $fromAccountId: String!,\r\n  $toAccountId: String!,\r\n  $amount: Float!\r\n) {\r\n  sendTransaction(\r\n    fromAccountId: $fromAccountId\r\n    toAccountId: $toAccountId\r\n    amount: $amount\r\n  ) {\r\n    id\r\n    amount\r\n  }\r\n}",
+                "variables": "{\r\n  \"fromAccountId\": \"6a08953dac88a8b1baacebbc\",\r\n  \"toAccountId\": \"6a08937eac88a8b1baacebb9\",\r\n  \"amount\": 50\r\n}"
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

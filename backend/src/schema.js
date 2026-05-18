@@ -14,7 +14,7 @@ const Transaction = require("./models/Transaction");
 const AccountType = new GraphQLObjectType({
     name: "Account",
 
-    fields: {
+    fields: () => ({
         id: {
             type: GraphQLString,
             resolve(parent) {
@@ -32,8 +32,21 @@ const AccountType = new GraphQLObjectType({
 
         active: {
             type: GraphQLBoolean
+        },
+
+        transactions: {
+            type: new GraphQLList(TransactionType),
+
+            async resolve(parent) {
+                return await Transaction.find({
+                    $or: [
+                        { fromAccount: parent._id },
+                        { toAccount: parent._id }
+                    ]
+                });
+            }
         }
-    }
+    })
 });
 
 const TransactionType = new GraphQLObjectType({
